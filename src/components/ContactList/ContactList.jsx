@@ -12,7 +12,7 @@ const ContactList = () => {
     // console.log(contact, searchName);  
    
     return <div>
-                {loading && <h3>Please wait. Loading...<Loader color='blue' loading={loading}/></h3>}
+        {loading && <h3>Please wait. Loading...<Loader color='blue' loading={loading}/></h3>}
         {error && <h2>Sorry. Server is dead...<Loader color='red' loading={loading}/></h2>}
         <ul className={css.list}>
         {contact.map((card) => {

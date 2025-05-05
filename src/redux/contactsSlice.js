@@ -60,6 +60,7 @@ const contactsSlice = createSlice({
 });
 
 export default contactsSlice.reducer;
+
 export const selectError = state => state.contacts.error;
 export const selectLoading = state => state.contacts.loading;
 export const selectLoadingApp = state => state.contacts.loadingApp;
@@ -68,7 +69,9 @@ export const selectContacts = state => state.contacts.items;
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contactList, searchName) =>
-    contactList.filter(card =>
-      card.name.toLowerCase().includes(searchName.toLowerCase())
+    contactList.filter(
+      card =>
+        card.name.toLowerCase().includes(searchName.toLowerCase()) ||
+        card.number.toLowerCase().includes(searchName.toLowerCase())
     )
 );
