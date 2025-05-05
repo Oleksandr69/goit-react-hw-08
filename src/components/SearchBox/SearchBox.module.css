@@ -1,0 +1,17 @@
+.inputSearch {
+  height: 44px;
+  border: 1px solid grey;
+  width: 360px;
+  margin-bottom: 18px;
+}
+
+.search {
+  width: 360px;
+  text-align: start;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+p {
+  margin: 0;
+}

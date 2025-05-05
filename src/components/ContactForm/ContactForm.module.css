@@ -1,0 +1,43 @@
+.formik {
+  width: 400px;
+  border: 2px solid grey;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  background: rgb(225, 245, 245);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+  font-size: 24px;
+  align-items: start;
+  padding: 8px;
+}
+
+.button {
+  font-size: 18px;
+  border: 2px solid grey;
+  background: rgb(59, 93, 243);
+  border-radius: 14px;
+  margin-bottom: 14px;
+  color: aliceblue;
+}
+
+.message {
+  font-size: 16px;
+  font-weight: bold;
+  color: brown;
+}
+
+label {
+  align-items: start;
+}
+
+.input {
+  height: 44px;
+  border: 1px solid grey;
+  width: 360px;
+}

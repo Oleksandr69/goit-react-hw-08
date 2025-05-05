@@ -1,0 +1,28 @@
+.item {
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(225, 245, 245);
+
+  width: 360px;
+}
+
+.btn {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(241, 158, 147);
+  padding: 0px 19px;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 18px;
+  margin: 0;
+  text-align: start;
+}
