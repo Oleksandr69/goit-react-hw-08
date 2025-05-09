@@ -72,6 +72,6 @@ export const selectFilteredContacts = createSelector(
     contactList.filter(
       card =>
         card.name.toLowerCase().includes(searchName.toLowerCase()) ||
-        card.number.toLowerCase().includes(searchName.toLowerCase())
+        card.number.includes(searchName)
     )
 );
