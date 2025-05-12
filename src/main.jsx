@@ -9,7 +9,7 @@ import { store } from './redux/store';
 import './index.css';
 
 createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
       {/* <PersistGate loading={null} persistor={persistor}> */}
@@ -19,7 +19,7 @@ createRoot(document.getElementById('root')).render(
       {/* </PersistGate> */}
       </Provider>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 
 

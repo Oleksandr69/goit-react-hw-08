@@ -1,14 +1,18 @@
 import React from 'react';
 import { Form, Formik, Field } from 'formik';
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../redux/auth/operations';
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
     const initialValues = {
         email: '',
         password: '',
     }
-    const handleSubmit = (value, options) => {
-        console.log(value);
+  const handleSubmit = (value, options) => {
+      dispatch(loginThunk(value));
+      console.log(value);
     }
   return (
 <>

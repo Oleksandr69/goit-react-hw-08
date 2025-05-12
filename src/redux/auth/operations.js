@@ -1,0 +1,52 @@
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+// axios.defaults.baseURL = 'https://connections-api.goit.global';
+export const goitAPI = axios.create({
+  baseURL: 'https://connections-api.goit.global',
+});
+
+const setAuthToken = token => {
+  goitAPI.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+const removeAuthToken = () => {
+  goitAPI.defaults.headers.common.Authorization = ``;
+};
+
+export const registerThunk = createAsyncThunk(
+  'auth/register',
+  async (body, thunkAPI) => {
+    try {
+      const response = await goitAPI.post('/users/signup', body);
+      setAuthToken(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const loginThunk = createAsyncThunk(
+  'auth/login',
+  async (body, thunkAPI) => {
+    try {
+      const response = await goitAPI.post('/users/login', body);
+      setAuthToken(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await goitAPI.post('/users/logout');
+      removeAuthToken();
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
