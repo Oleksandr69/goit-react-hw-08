@@ -16,9 +16,11 @@ import Login from '../../pages/LoginPage/LoginPage';
 import Register from '../../pages/RegistrationPage/RegistrationPage';
 import Contacts from '../../pages/Contacts/Contacts';
 import NotFound from '../../pages/NotFound/NotFound';
-import SharedLayout from '../SharedLayout';
+import PrivateRoute from '../PrivateRoute';
+import Layout from '../Layout';
 import { refreshThunk } from '../../redux/auth/operations';
 import { selectIsRefreshing } from '../../redux/auth/selectors';
+
 
 const App = () => {
 
@@ -32,9 +34,12 @@ const App = () => {
         <div className={css.containerApp}>
           <Routes>
             
-            <Route path='/' element={<SharedLayout/>}>
+            <Route path='/' element={<Layout/>}>
               <Route index element={<Home />} />
-              <Route path='contacts' element={<Contacts />} />
+              <Route path='contacts' element={
+                <PrivateRoute>
+                  <Contacts />
+                </PrivateRoute>} />
             </Route>
  
             <Route path='/login' element={<Login />} />
