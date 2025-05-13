@@ -23,12 +23,12 @@ const Contacts = () => {
           <ContactForm
         />
         
-         <SearchBox
+          <SearchBox
         />
 
         {loadingApp && !error && <b>Request in progress...<Loader color='green' loader={loadingApp} /></b>}
         
-      <ContactList
+        <ContactList
           />
       </>
   )

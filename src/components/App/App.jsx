@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import css from'./App.module.css';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from 'react-router-dom'
 
 import Navigation from '../Navigation/Navigation';
@@ -17,11 +17,19 @@ import Register from '../../pages/RegistrationPage/RegistrationPage';
 import Contacts from '../../pages/Contacts/Contacts';
 import NotFound from '../../pages/NotFound/NotFound';
 import SharedLayout from '../SharedLayout';
+import { refreshThunk } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
 
 const App = () => {
 
-      return (
-        <div>
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch])
+
+      return isRefreshing ? null : (
+        <div className={css.containerApp}>
           <Routes>
             
             <Route path='/' element={<SharedLayout/>}>
@@ -33,8 +41,9 @@ const App = () => {
             <Route path='/register' element={<Register />} />
             <Route path='*' element={<NotFound /> } />
           </Routes>    
-    </div>
-  );
+        </div>
+      )
+  ;
 };
 
 export default App;

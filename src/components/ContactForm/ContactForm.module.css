@@ -2,8 +2,10 @@
   width: 400px;
   border: 2px solid grey;
   margin: 0 auto;
+  margin-top: 16px;
   margin-bottom: 16px;
   background: rgb(225, 245, 245);
+  text-align: center;
 }
 
 .field {
@@ -17,7 +19,7 @@
   padding: 8px;
 }
 
-.button {
+.btn {
   font-size: 18px;
   border: 2px solid grey;
   background: rgb(59, 93, 243);

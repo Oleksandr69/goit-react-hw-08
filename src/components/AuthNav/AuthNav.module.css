@@ -1,0 +1,21 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #2a363b;
+}
+
+.link.active {
+  color: #e84a5f;
+  text-decoration: underline;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  font-size: 24px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0;
+}

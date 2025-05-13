@@ -1,0 +1,13 @@
+.userMenu {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btn {
+  border: 2px solid grey;
+  padding: 4px 12px;
+}
