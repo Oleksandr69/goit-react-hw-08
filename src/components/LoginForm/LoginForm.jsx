@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   const handleSubmit = (value, options) => {
     dispatch(logInThunk(value));
-    console.log(value);
+    // console.log(value);
     options.resetForm();
 
     }

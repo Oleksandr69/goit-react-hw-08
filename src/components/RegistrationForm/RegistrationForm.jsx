@@ -25,7 +25,7 @@ const RegistrationForm = () => {
         password: Yup.string().min(7, "Too short!").max(20, "Too Long!").required("Required!"),
     });
     const handleSubmit = (value, options) => {
-      console.log(value);
+      // console.log(value);
       dispatch(registerThunk(value));
       options.resetForm();
     }
