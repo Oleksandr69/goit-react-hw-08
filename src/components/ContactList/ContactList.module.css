@@ -8,12 +8,14 @@
   justify-content: start;
 }
 
-.list h3 {
-  margin: 0 auto;
-}
-
 .cardItem {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
 }

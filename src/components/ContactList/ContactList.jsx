@@ -8,27 +8,20 @@ const ContactList = () => {
     const error = useSelector(selectError);
     const loading = useSelector(selectLoading);
     const contact = useSelector(selectFilteredContacts);
-
-    // console.log(contact, searchName);  
-   
+    
     return <div>
-        {loading && <h3>Please wait. Loading...<Loader color='blue' loading={loading}/></h3>}
-        {error && <h2>Sorry. Server is dead...<Loader color='red' loading={loading}/></h2>}
+        {loading && <div className={css.loading}><h3>Please wait. Loading...</h3><Loader color='blue' loading={loading}/></div>}
+        {error && <div className={css.loading}><h2>Sorry. Server is dead...</h2><Loader color='red' loading={loading}/></div>}
         <ul className={css.list}>
-        {contact.map((card) => {
-
+            {contact.map((card) => {
                 return (<li key={card.id} className={css.cardItem}>
                     <Contact
                         contact={card}
                     />
                 </li>);
-            // }
-        
-        })}
-
+            })}
         </ul>
-
-        </div>
+    </div>
 };
 
 export default ContactList;

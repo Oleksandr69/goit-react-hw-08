@@ -15,7 +15,6 @@ export default function Contact({ contact }) {
         <p className={css.text}><FaPhoneAlt/>     {contact.number} </p>
       </div>
       <button className={css.btn} onClick={handleDelete}>
-        {/* handleDelete */}
         Delete
       </button>
     </div>

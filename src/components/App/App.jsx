@@ -4,22 +4,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from 'react-router-dom'
 
-import Navigation from '../Navigation/Navigation';
-import ContactForm from '../ContactForm/ContactForm';
-import SearchBox from '../SearchBox/SearchBox';
-import ContactList from '../ContactList/ContactList';
-// import { fetchContacts } from '../../redux/contactsOps';
-// import { selectError, selectLoadingApp } from '../../redux/contactsSlice';
-// import Loader from '../Loader/Loader';
 import Home from '../../pages/HomePage/HomePage';
 import Login from '../../pages/LoginPage/LoginPage';
 import Register from '../../pages/RegistrationPage/RegistrationPage';
-import Contacts from '../../pages/Contacts/Contacts';
+import ContactsPage from '../../pages/ContactsPage/ContactsPage';
 import NotFound from '../../pages/NotFound/NotFound';
-import PrivateRoute from '../PrivateRoute';
-import Layout from '../Layout';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import Layout from '../Layout/Layout';
 import { refreshThunk } from '../../redux/auth/operations';
 import { selectIsRefreshing } from '../../redux/auth/selectors';
+import RestrictedRoute from '../RestrictedRoute/RestrictedRoute';
 
 
 const App = () => {
@@ -33,17 +27,15 @@ const App = () => {
       return isRefreshing ? null : (
         <div className={css.containerApp}>
           <Routes>
-            
             <Route path='/' element={<Layout/>}>
               <Route index element={<Home />} />
               <Route path='contacts' element={
                 <PrivateRoute>
-                  <Contacts />
+                  <ContactsPage />
                 </PrivateRoute>} />
-            </Route>
- 
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
+              <Route path='/login' element={<RestrictedRoute component={<Login />} redirectTo='/contacts' />} />
+              <Route path='/register' element={<RestrictedRoute component={<Register />} redirectTo='/contacts' />} />
+              </Route>
             <Route path='*' element={<NotFound /> } />
           </Routes>    
         </div>

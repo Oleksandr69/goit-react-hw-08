@@ -9,6 +9,7 @@ const UserMenu = () => {
 const dispatch = useDispatch();
 const userName = useSelector(selectUser);
 
+
 return (
     <div className={css.userMenu}>
         <p className={css.username}>Welcome,  {userName.name}.</p>

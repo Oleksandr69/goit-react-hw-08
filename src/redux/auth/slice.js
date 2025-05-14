@@ -30,16 +30,17 @@ const slice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        console.log(state.user);
       })
       .addCase(refreshThunk.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isRefreshing = false;
         state.isLoggedIn = true;
       })
-      .addCase(refreshThunk.pending, (state, action) => {
+      .addCase(refreshThunk.pending, state => {
         state.isRefreshing = true;
       })
-      .addCase(refreshThunk.rejected, (state, action) => {
+      .addCase(refreshThunk.rejected, state => {
         state.isRefreshing = false;
       })
       .addCase(logoutThunk.fulfilled, () => initialState);
