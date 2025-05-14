@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { loginThunk } from '../../redux/auth/operations';
+import { logInThunk } from '../../redux/auth/operations';
 import css from './LoginForm.module.css'
 import * as Yup from "yup";
 import { useId } from "react";
@@ -24,7 +24,7 @@ const LoginForm = () => {
   });
 
   const handleSubmit = (value, options) => {
-    dispatch(loginThunk(value));
+    dispatch(logInThunk(value));
     console.log(value);
     options.resetForm();
 

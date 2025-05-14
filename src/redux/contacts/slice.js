@@ -1,6 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 // import { selectNameFilter } from '../redux/filtersSlice';
 import { fetchContacts, deleteContact, addContact } from './operations';
+import { logOutThunk } from '../auth/operations';
 
 const slice = createSlice({
   name: 'contacts',
@@ -23,6 +24,13 @@ const slice = createSlice({
           contact => contact.id !== action.payload
         );
       })
+      // ===================================================================
+      .addCase(logOutThunk.fulfilled, state => {
+        state.loadingApp = false;
+        state.error = null;
+        state.items = [];
+      })
+      // ===================================================================
 
       .addMatcher(isAnyOf(fetchContacts.pending), state => {
         state.loadingApp = true;
